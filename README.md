@@ -21,7 +21,7 @@ const Commerce = new CoinbaseCommerce('your-api-key');
 
 ## Usage
 
-#### [Create Charge](https://commerce.coinbase.com/docs/api/#charges)
+#### [Create Charge](https://commerce.coinbase.com/docs/api/#create-a-charge)
 ```js
 const charge = Commerce.charges.create({
     name: 'The Sovereign Individual',
