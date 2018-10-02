@@ -19,7 +19,7 @@ import CoinbaseCommerce from 'meteor/jorgenvatle:coinbase-commerce-meteor';
 const Commerce = new CoinbaseCommerce('your-api-key');
 ```
 
-## Usage
+## Charges
 
 #### [Create charge](https://commerce.coinbase.com/docs/api/#create-a-charge)
 ```js
@@ -36,4 +36,23 @@ const charge = Commerce.charges.create({
 #### [Show a charge](https://commerce.coinbase.com/docs/api/#show-a-charge)
 ```js
 const charge = Commerce.charges.show('charge-id-goes-here');
+```
+
+## Webhooks
+
+#### [Validate webhook](https://commerce.coinbase.com/docs/api/#webhooks)
+```js
+/**
+* Throws a new Meteor.Error exception if the given request is invalid. 
+*/
+Commerce.webhooks.validate(req);
+```
+
+With Picker:
+```js
+Picker.route('/listeners/coinbase', (params, req, res) => {
+    Commerce.webhooks.validate(req);
+    
+    // Handle the webhook
+});
 ```
