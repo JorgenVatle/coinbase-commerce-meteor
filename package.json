@@ -1,0 +1,25 @@
+{
+  "name": "meteor-coinbase-commerce",
+  "version": "1.0.0",
+  "description": "Coinbase Commerce library for Meteor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JorgenVatle/meteor-coinbase-commerce.git"
+  },
+  "keywords": [
+    "coinbase",
+    "meteor",
+    "coinbase",
+    "commerce"
+  ],
+  "author": "Jørgen Vatle <Jorgen@WcAServices.net> (https://github.com/JorgenVatle)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JorgenVatle/meteor-coinbase-commerce/issues"
+  },
+  "homepage": "https://github.com/JorgenVatle/meteor-coinbase-commerce#readme"
+}
