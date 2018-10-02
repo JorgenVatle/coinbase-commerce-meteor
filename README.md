@@ -40,7 +40,7 @@ const charge = Commerce.charges.show('charge-id-goes-here');
 
 ## Webhooks
 
-#### [Validate webhook](https://commerce.coinbase.com/docs/api/#webhooks)
+#### [Validate webhook](https://commerce.coinbase.com/docs/api/#securing-webhooks)
 ```js
 /**
 * Throws a new Meteor.Error exception if the given request is invalid. 
