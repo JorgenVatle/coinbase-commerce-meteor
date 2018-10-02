@@ -41,14 +41,11 @@ const charge = Commerce.charges.show('charge-id-goes-here');
 ## Webhooks
 
 #### [Validate webhook](https://commerce.coinbase.com/docs/api/#securing-webhooks)
+The webhook validator throws a `Meteor.Error` for webhooks that don't pass the validation.
 ```js
-/**
-* Throws a new Meteor.Error exception if the given request is invalid. 
-*/
 Commerce.webhooks.validate(req);
 ```
-
-With Picker:
+Validating with Picker:
 ```js
 Picker.route('/listeners/coinbase', (params, req, res) => {
     Commerce.webhooks.validate(req);
