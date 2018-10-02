@@ -9,3 +9,12 @@ This package was written up primarily due to scoping issues with the official pa
 ```bash
 meteor add jorgenvatle:coinbase-commerce-meteor
 ```
+
+## Setup
+
+#### Import library:
+```js
+import CoinbaseCommerce from 'meteor/jorgenvatle:coinbase-commerce-meteor';
+
+const Commerce = new CoinbaseCommerce('your-api-key');
+```
