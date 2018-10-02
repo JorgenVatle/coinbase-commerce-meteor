@@ -18,3 +18,19 @@ import CoinbaseCommerce from 'meteor/jorgenvatle:coinbase-commerce-meteor';
 
 const Commerce = new CoinbaseCommerce('your-api-key');
 ```
+
+## Usage
+
+#### Create Charge
+[Charge API Reference](https://commerce.coinbase.com/docs/api/#charge-resource)
+```js
+Commerce.charges.create({
+    name: 'The Sovereign Individual',
+    description: 'Mastering the Transition to the Information Age',
+    pricing_type: 'fixed_price',
+    local_price: {
+        amount: '100.00',
+        currency: 'USD'
+    },
+})
+```
