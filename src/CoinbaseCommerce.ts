@@ -6,6 +6,11 @@ import { Meteor } from 'meteor/meteor';
 import * as Crypto from 'crypto';
 import { ChargeResource, CreateACharge } from "./CoinbaseCommerceInterfaces";
 
+type FormattedRequest = {
+    headers: any,
+    body: any,
+}
+
 export default class CoinbaseCommerce {
 
     /**
@@ -100,12 +105,14 @@ export default class CoinbaseCommerce {
      *
      * @param request
      */
-    public validateWebhook(request: Request) {
-        if (!request.headers['X-CC-Webhook-Signature']) {
+    public validateWebhook(request: FormattedRequest) {
+        const signature = request.headers['X-CC-Webhook-Signature'];
+
+        if (!signature) {
             throw this.exception('No webhook signature in request object!');
         }
 
-        if (this.hmac(request.body) !== request.headers['X-CC-Webhook-Signature']) {
+        if (this.hmac(request.body) !== signature) {
             throw this.exception('Invalid webhook signature!');
         }
     }
