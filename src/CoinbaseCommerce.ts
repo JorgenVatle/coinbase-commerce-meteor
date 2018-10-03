@@ -31,7 +31,7 @@ export default class CoinbaseCommerce {
      * @param version
      * @param url
      */
-    public constructor(key, secret?, version = '2018-03-22', url = 'https://api.commerce.coinbase.com/') {
+    public constructor(key: string, secret?: string, version = '2018-03-22', url = 'https://api.commerce.coinbase.com/') {
         this.api = { key, version, url, secret };
     }
 
@@ -40,7 +40,7 @@ export default class CoinbaseCommerce {
      *
      * @param path
      */
-    protected buildUrl(path): string {
+    protected buildUrl(path: string): string {
         return this.api.url + path.replace(/^\/+/, '');
     }
 
@@ -50,7 +50,7 @@ export default class CoinbaseCommerce {
      * @param value
      * @param secret
      */
-    protected hmac(value, secret = this.api.secret): string {
+    protected hmac(value: any, secret = this.api.secret): string {
         return Crypto.createHmac('sha256', secret).update(value).digest('hex');
     }
 
@@ -71,7 +71,7 @@ export default class CoinbaseCommerce {
      * @param data
      * @returns {object}
      */
-    protected request(method, path, data?): any {
+    protected request(method: string, path: string, data?: any): any {
         return HTTP.call(method, path, {
             headers: {
                 'X-CC-Api-Key': this.api.key,
