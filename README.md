@@ -64,7 +64,10 @@ if (Commerce.isValidWebhook(req)) {
 ```
 
 ## Contributing
-When adding new features, please include tests for them. :smile:
+To start the development environment, you need to copy `settings.example.json` to `settings.json` and add in keys to
+your Coinbase Commerce application.
+
+When adding new features, please include tests for them.
 
 #### Build & Test
 Running the following command will start up both the TypeScript watcher as well as the test environment.
