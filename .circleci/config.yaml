@@ -1,0 +1,44 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10.0
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      ## Restore Cache
+      - restore_cache:
+          name: Restore Meteor Cache
+          key: meteor-cache-{{ checksum ".meteor/release" }}
+      - restore_cache:
+          name: Restore NPM Cache
+          key: npm-cache-{{ checksum "package.json" }}
+      - restore_cache:
+          name: Restore Meteor Package Cache
+          key: packages-cache-{{ checksum ".meteor/versions" }}
+
+      ## Install and cache dependencies
+      - run: meteor || curl https://install.meteor.com/ | /bin/sh
+      - save_cache:
+          name: Save Meteor Cache
+          key: meteor-cache-{{ checksum ".meteor/release" }}
+          paths:
+            - '~/.meteor'
+      - run: meteor npm install
+      - save_cache:
+          name: Save NPM Cache
+          key: npm-cache-{{ checksum "package.json" }}
+          paths:
+            - '~/.npm'
+            - 'node_modules'
+      - run: npm run test
+      - save_cache:
+          key: packages-cache-{{ checksum ".meteor/versions" }}
+          paths:
+            - './.meteor/local/build'
+            - './.meteor/local/bundler-cache'
+            - './.meteor/local/isopacks'
+            - './.meteor/local/plugin-cache'
