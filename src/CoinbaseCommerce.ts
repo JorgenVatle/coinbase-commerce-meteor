@@ -3,36 +3,23 @@ import { HTTP } from 'meteor/http';
 export default class CoinbaseCommerce {
 
     /**
-     * Commerce API Key.
-     *
-     * @private
+     * Commerce API settings.
      */
-    private apiKey: string;
-
-    /**
-     * Commerce API Version
-     *
-     * @link https://commerce.coinbase.com/docs/api/#introduction
-     */
-    protected apiVersion;
-
-    /**
-     * Commerce API URL.
-     *
-     * @protected
-     * @type {string}
-     */
-    protected apiUrl: string = 'https://api.commerce.coinbase.com/';
+    private api: {
+        key: string,
+        version: string,
+        url: string,
+    };
 
     /**
      * Coinbase Commerce constructor.
      *
-     * @param apiKey
-     * @param apiVersion
+     * @param key
+     * @param version
+     * @param url
      */
-    public constructor(apiKey, apiVersion = '2018-03-22') {
-        this.apiKey = apiKey;
-        this.apiVersion = apiVersion;
+    public constructor(key, version = '2018-03-22', url = 'https://api.commerce.coinbase.com/') {
+        this.api = { key, version, url };
     }
 
     /**
@@ -43,7 +30,7 @@ export default class CoinbaseCommerce {
      * @returns {string}
      */
     protected buildUrl(path) {
-        return this.apiUrl + path.replace(/^\/+/, '');
+        return this.api.url + path.replace(/^\/+/, '');
     }
 
     /**
@@ -59,8 +46,8 @@ export default class CoinbaseCommerce {
     protected request(method, path, data, options) {
         return HTTP.call(method, path, Object.assign({
             headers: {
-                'X-CC-Api-Key': this.apiKey,
-                'X-CC-Version': this.apiVersion,
+                'X-CC-Api-Key': this.api.key,
+                'X-CC-Version': this.api.version,
             },
             url: this.buildUrl(path),
             data,
