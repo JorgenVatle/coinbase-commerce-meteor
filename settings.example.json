@@ -1,0 +1,6 @@
+{
+  "coinbase": {
+    "key": "-- Your API Key Here --",
+    "secret": "-- Your Webhook Shared Secret Here --"
+  }
+}
