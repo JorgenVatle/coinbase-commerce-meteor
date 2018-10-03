@@ -9,6 +9,7 @@ export default class CoinbaseCommerce {
      */
     private api: {
         key: string,
+        secret?: string,
         version: string,
         url: string,
     };
@@ -17,11 +18,12 @@ export default class CoinbaseCommerce {
      * Coinbase Commerce constructor.
      *
      * @param key
+     * @param secret
      * @param version
      * @param url
      */
-    public constructor(key, version = '2018-03-22', url = 'https://api.commerce.coinbase.com/') {
-        this.api = { key, version, url };
+    public constructor(key, secret?, version = '2018-03-22', url = 'https://api.commerce.coinbase.com/') {
+        this.api = { key, version, url, secret };
     }
 
     /**
@@ -68,5 +70,10 @@ export default class CoinbaseCommerce {
      */
     public showCharge(id: string): ChargeResource {
         return this.request('GET', `/charges/${id}`);
+    }
+
+
+    public validateWebhook(request: Request) {
+
     }
 }
