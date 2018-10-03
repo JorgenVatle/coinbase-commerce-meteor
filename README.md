@@ -56,7 +56,7 @@ Picker.route('/listeners/coinbase', (params, req, res) => {
     // Handle the webhook
 });
 ```
-If you'd rather not have exceptions thrown for invalid/unauthorized webhooks, use our boolean check:
+If you'd rather not have exceptions thrown for invalid/unauthorized webhooks, use the boolean equivalent:
 ```js
 if (Commerce.isValidWebhook(req)) {
     // Webhook is valid!
