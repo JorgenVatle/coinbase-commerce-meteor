@@ -58,6 +58,10 @@ export default class CoinbaseCommerce {
      */
     request(method, path, data, options) {
         return HTTP.call(method, path, Object.assign({
+            headers: {
+                'X-CC-Api-Key': this.apiKey,
+                'X-CC-Version': this.apiVersion,
+            },
             url: this.buildUrl(path),
             data,
         }, options)).data;
