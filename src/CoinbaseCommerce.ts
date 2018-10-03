@@ -122,4 +122,17 @@ export default class CoinbaseCommerce {
             throw this.exception('Invalid webhook signature!');
         }
     }
+
+    /**
+     * Checks if the given request is a valid Commerce webhook.
+     *
+     * @param request
+     */
+    public isValidWebhook(request: FormattedRequest): boolean {
+        try {
+            return this.validateWebhook(request) === undefined;
+        } catch (error) {
+            return false;
+        }
+    }
 }
