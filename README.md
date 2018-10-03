@@ -16,7 +16,7 @@ meteor add jorgenvatle:coinbase-commerce-meteor
 ```js
 import CoinbaseCommerce from 'meteor/jorgenvatle:coinbase-commerce-meteor';
 
-const Commerce = new CoinbaseCommerce('your-api-key');
+const Commerce = new CoinbaseCommerce('your-api-key', 'your-webhook-shared-secret');
 ```
 
 ## Charges
