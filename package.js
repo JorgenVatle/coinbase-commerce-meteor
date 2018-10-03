@@ -9,7 +9,7 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.2');
   api.use('ecmascript');
-  api.mainModule('src/coinbase-commerce.js');
+  api.mainModule('dist/index.js');
 });
 
 Package.onTest(function(api) {
