@@ -3,26 +3,26 @@ import { HTTP } from 'meteor/http';
 export default class CoinbaseCommerce {
 
     /**
-     * Commerce API URL.
-     *
-     * @protected
-     * @type {string}
-     */
-    apiUrl = 'https://api.commerce.coinbase.com/';
-
-    /**
      * Commerce API Key.
      *
      * @private
      */
-    apiKey;
+    private apiKey: string;
 
     /**
      * Commerce API Version
      *
      * @link https://commerce.coinbase.com/docs/api/#introduction
      */
-    apiVersion;
+    protected apiVersion;
+
+    /**
+     * Commerce API URL.
+     *
+     * @protected
+     * @type {string}
+     */
+    protected apiUrl: string = 'https://api.commerce.coinbase.com/';
 
     /**
      * Coinbase Commerce constructor.
@@ -30,7 +30,7 @@ export default class CoinbaseCommerce {
      * @param apiKey
      * @param apiVersion
      */
-    constructor(apiKey, apiVersion = '2018-03-22') {
+    public constructor(apiKey, apiVersion = '2018-03-22') {
         this.apiKey = apiKey;
         this.apiVersion = apiVersion;
     }
@@ -42,7 +42,7 @@ export default class CoinbaseCommerce {
      * @param path
      * @returns {string}
      */
-    buildUrl(path) {
+    protected buildUrl(path) {
         return this.apiUrl + path.replace(/^\/+/, '');
     }
 
@@ -56,7 +56,7 @@ export default class CoinbaseCommerce {
      * @param options
      * @returns {object}
      */
-    request(method, path, data, options) {
+    protected request(method, path, data, options) {
         return HTTP.call(method, path, Object.assign({
             headers: {
                 'X-CC-Api-Key': this.apiKey,
