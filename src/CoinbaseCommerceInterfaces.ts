@@ -1,7 +1,10 @@
-export interface Money {
-    amount: string,
-    currency: 'USD', // Todo: extend
-}
+type Payments = Array<any>
+
+type PricingType = 'no_price' | 'fixed_price'
+
+type Timestamp = string;
+
+type Timeline = Array<TimelineEntry>
 
 interface TimelineEntry {
     time: Timestamp,
@@ -26,13 +29,10 @@ interface Addresses {
     ethereum_classic: string,
 }
 
-type Payments = Array<any>
-
-type PricingType = 'no_price' | 'fixed_price'
-
-type Timestamp = string;
-
-type Timeline = Array<TimelineEntry>
+export interface Money {
+    amount: string,
+    currency: 'USD', // Todo: extend
+}
 
 export interface CheckoutResource {
     id: string,
