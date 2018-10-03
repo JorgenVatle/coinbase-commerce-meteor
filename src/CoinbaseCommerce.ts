@@ -106,12 +106,19 @@ export default class CoinbaseCommerce {
      */
     public validateWebhook(request: FormattedRequest) {
         const signature = request.headers['x-cc-webhook-signature'];
+        const body = typeof request.body === 'string'
+            ? request.body
+            : JSON.stringify(request.body);
 
         if (!signature) {
             throw this.exception('No webhook signature in request object!');
         }
 
-        if (this.hmac(request.body) !== signature) {
+        if (!body) {
+            throw this.exception('Missing request body for webhook validation!')
+        }
+
+        if (this.hmac(body) !== signature) {
             throw this.exception('Invalid webhook signature!');
         }
     }
