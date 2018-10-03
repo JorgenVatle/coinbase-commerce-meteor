@@ -87,7 +87,7 @@ export default class CoinbaseCommerce {
      * @param charge
      */
     public createCharge(charge: CreateACharge): ChargeResource {
-        return this.request('POST', '/charges', charge);
+        return this.request('POST', '/charges', charge).data;
     }
 
     /**
@@ -96,7 +96,7 @@ export default class CoinbaseCommerce {
      * @param id
      */
     public showCharge(id: string): ChargeResource {
-        return this.request('GET', `/charges/${id}`);
+        return this.request('GET', `/charges/${id}`).data;
     }
 
     /**
