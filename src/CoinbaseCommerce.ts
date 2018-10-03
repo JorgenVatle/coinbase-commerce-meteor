@@ -25,24 +25,21 @@ export default class CoinbaseCommerce {
     /**
      * Builds a path to the API.
      *
-     * @protected
      * @param path
-     * @returns {string}
      */
-    protected buildUrl(path) {
+    protected buildUrl(path): string {
         return this.api.url + path.replace(/^\/+/, '');
     }
 
     /**
      * Send a request to the API.
      *
-     * @protected
      * @param method
      * @param path
      * @param data
      * @returns {object}
      */
-    protected request(method, path, data) {
+    protected request(method, path, data): any {
         return HTTP.call(method, path, {
             headers: {
                 'X-CC-Api-Key': this.api.key,
