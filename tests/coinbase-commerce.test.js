@@ -37,3 +37,8 @@ Tinytest.add('Create and fetch charge', (test) => {
     test.isNotNull(charge.id, 'New charge ID');
     test.equal(charge.name, Commerce.showCharge(charge.id).name, 'Created charge name matches fetched charge');
 });
+
+Tinytest.add('Validate valid webhook', (test) => {
+    const validWebhook = require('./data/valid/charge-confirmed');
+    test.isUndefined(Commerce.validateWebhook(validWebhook));
+});
