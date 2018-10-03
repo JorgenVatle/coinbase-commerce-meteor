@@ -4,8 +4,8 @@
   "description": "Coinbase Commerce library for Meteor",
   "main": "index.js",
   "scripts": {
-    "start": "npm test && start npm build -- --watch",
-    "build": "tsc .",
+    "start": "start npm run build -- --watch & npm test",
+    "build": "tsc",
     "test": "meteor test-packages ./ --settings settings.json",
     "publish": "npm build && meteor publish"
   },
