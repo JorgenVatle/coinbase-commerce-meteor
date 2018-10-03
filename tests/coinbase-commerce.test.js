@@ -47,3 +47,8 @@ Tinytest.add('Throw exception for invalid webhook', (test) => {
         Commerce.validateWebhook(TestData.webhooks.invalid);
     }, 'Invalid webhook signature! [CoinbaseCommerce]');
 });
+
+Tinytest.add('Validate webhooks with booleans', (test) => {
+    test.isTrue(Commerce.isValidWebhook(TestData.webhooks.valid));
+    test.isFalse(Commerce.isValidWebhook(TestData.webhooks.invalid));
+});
