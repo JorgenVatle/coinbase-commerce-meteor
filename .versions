@@ -20,8 +20,8 @@ ejson@1.1.0
 geojson-utils@1.0.10
 http@1.4.1
 id-map@1.1.0
-jorgenvatle:coinbase-commerce-meteor@1.0.0
-local-test:jorgenvatle:coinbase-commerce-meteor@1.0.0
+jorgenvatle:coinbase-commerce-meteor@1.1.0
+local-test:jorgenvatle:coinbase-commerce-meteor@1.1.0
 logging@1.1.20
 meteor@1.9.2
 minimongo@1.4.5
