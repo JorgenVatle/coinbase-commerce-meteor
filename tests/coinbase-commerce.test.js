@@ -1,9 +1,9 @@
 import { Tinytest } from "meteor/tinytest";
-
 import CoinbaseCommerce from "meteor/jorgenvatle:coinbase-commerce-meteor";
+
 const config = Meteor.settings.coinbase;
 const Commerce = new CoinbaseCommerce(config.key, config.secret);
-
+const TestData = JSON.parse(Assets.getText('tests/data/index.json'));
 
 Tinytest.add('Create new charge', (test) => {
     const name = 'The Sovereign Individual';
@@ -39,6 +39,5 @@ Tinytest.add('Create and fetch charge', (test) => {
 });
 
 Tinytest.add('Validate valid webhook', (test) => {
-    const validWebhook = require('./data/valid/charge-confirmed');
-    test.isUndefined(Commerce.validateWebhook(validWebhook));
+    test.isUndefined(Commerce.validateWebhook(TestData.webhooks.valid));
 });
