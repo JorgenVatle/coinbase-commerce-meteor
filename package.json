@@ -4,7 +4,9 @@
   "description": "Coinbase Commerce library for Meteor",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc .",
+    "test": "npm build && meteor test-packages . --settings settings.json",
+    "publish": "npm build && npm test && meteor publish"
   },
   "repository": {
     "type": "git",
