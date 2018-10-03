@@ -40,18 +40,17 @@ export default class CoinbaseCommerce {
      * @param method
      * @param path
      * @param data
-     * @param options
      * @returns {object}
      */
-    protected request(method, path, data, options) {
-        return HTTP.call(method, path, Object.assign({
+    protected request(method, path, data) {
+        return HTTP.call(method, path, {
             headers: {
                 'X-CC-Api-Key': this.api.key,
                 'X-CC-Version': this.api.version,
             },
             url: this.buildUrl(path),
             data,
-        }, options)).data;
+        }).data;
     }
 
 }
