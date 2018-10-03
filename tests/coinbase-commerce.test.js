@@ -41,3 +41,9 @@ Tinytest.add('Create and fetch charge', (test) => {
 Tinytest.add('Validate valid webhook', (test) => {
     test.isUndefined(Commerce.validateWebhook(TestData.webhooks.valid));
 });
+
+Tinytest.add('Throw exception for invalid webhook', (test) => {
+    test.throws(() => {
+        Commerce.validateWebhook(TestData.webhooks.invalid);
+    }, Meteor.Error);
+});
