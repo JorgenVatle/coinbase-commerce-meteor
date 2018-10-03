@@ -1,5 +1,6 @@
 // @ts-ignore
 import { HTTP } from 'meteor/http';
+import * as Crypto from 'crypto';
 import { ChargeResource, CreateACharge } from "./CoinbaseCommerceInterfaces";
 
 export default class CoinbaseCommerce {
@@ -33,6 +34,16 @@ export default class CoinbaseCommerce {
      */
     protected buildUrl(path): string {
         return this.api.url + path.replace(/^\/+/, '');
+    }
+
+    /**
+     * Hash HMAC of the given value.
+     *
+     * @param value
+     * @param secret
+     */
+    protected hmac(value, secret = this.api.secret): string {
+        return Crypto.createHmac('sha256', secret).update(value).digest('hex');
     }
 
     /**
