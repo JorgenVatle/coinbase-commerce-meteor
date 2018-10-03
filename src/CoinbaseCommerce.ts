@@ -1,3 +1,4 @@
+// @ts-ignore
 import { HTTP } from 'meteor/http';
 import { ChargeResource, CreateACharge } from "./CoinbaseCommerceInterfaces";
 
