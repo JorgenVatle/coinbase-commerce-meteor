@@ -23,7 +23,7 @@ const Commerce = new CoinbaseCommerce('your-api-key');
 
 #### [Create charge](https://commerce.coinbase.com/docs/api/#create-a-charge)
 ```js
-const charge = Commerce.charges.create({
+const charge = Commerce.createCharge({
     name: 'The Sovereign Individual',
     description: 'Mastering the Transition to the Information Age',
     pricing_type: 'fixed_price',
@@ -35,7 +35,7 @@ const charge = Commerce.charges.create({
 ```
 #### [Show a charge](https://commerce.coinbase.com/docs/api/#show-a-charge)
 ```js
-const charge = Commerce.charges.show('charge-id-goes-here');
+const charge = Commerce.showCharge('charge-id-goes-here');
 ```
 
 ## Webhooks
@@ -43,12 +43,12 @@ const charge = Commerce.charges.show('charge-id-goes-here');
 #### [Validate webhook](https://commerce.coinbase.com/docs/api/#securing-webhooks)
 The webhook validator throws a `Meteor.Error` for webhooks that don't pass the validation.
 ```js
-Commerce.webhooks.validate(req);
+Commerce.validateWebhook(req);
 ```
 Validating with Picker:
 ```js
 Picker.route('/listeners/coinbase', (params, req, res) => {
-    Commerce.webhooks.validate(req);
+    Commerce.validateWebhook(req);
     
     // Handle the webhook
 });
