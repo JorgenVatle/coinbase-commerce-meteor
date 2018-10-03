@@ -31,7 +31,12 @@ export default class CoinbaseCommerce {
      * @param version
      * @param url
      */
-    public constructor(key: string, secret?: string, version = '2018-03-22', url = 'https://api.commerce.coinbase.com/') {
+    public constructor(
+        key: string = Meteor.settings.coinbase.key,
+        secret: string = Meteor.settings.coinbase.secret,
+        version: string = Meteor.settings.coinbase.version || '2018-03-22',
+        url: string = Meteor.settings.coinbase.url || 'https://api.commerce.coinbase.com/'
+    ) {
         this.api = { key, version, url, secret };
     }
 

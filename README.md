@@ -18,6 +18,24 @@ import CoinbaseCommerce from 'meteor/jorgenvatle:coinbase-commerce-meteor';
 
 const Commerce = new CoinbaseCommerce('your-api-key', 'your-webhook-shared-secret');
 ```
+If you add a `coinbase` object to your project's `settings.json`, you can skip the above constructor arguments.
+
+**settings.json**
+```json
+{
+  // ...
+  "coinbase": {
+    "key": "Your API key",
+    "secret": "Your shared secret"
+  }
+  // ...
+}
+```
+
+**your-script.js**
+```js
+const Commerce = new CoinbaseCommerce();
+```
 
 ## Charges
 
