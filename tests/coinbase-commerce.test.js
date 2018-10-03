@@ -5,7 +5,7 @@ const config = Meteor.settings.coinbase;
 const Commerce = new CoinbaseCommerce(config.key, config.secret);
 
 
-Tinytest.add('Can create new charges', function (test) {
+Tinytest.add('Create new charge', function (test) {
     const name = 'The Sovereign Individual';
 
     const charge = Commerce.createCharge({
@@ -19,4 +19,21 @@ Tinytest.add('Can create new charges', function (test) {
     });
 
     test.equal(charge.name, name);
+});
+
+Tinytest.add('Create and fetch charge', (test) => {
+    const name = 'Create and fetch charge';
+
+    const charge = Commerce.createCharge({
+        name,
+        description: 'Mastering the Transition to the Information Age',
+        pricing_type: 'fixed_price',
+        local_price: {
+            amount: '100.00',
+            currency: 'USD'
+        },
+    });
+
+    test.isNotNull(charge.id, 'New charge ID');
+    test.equal(charge.name, Commerce.showCharge(charge.id).name, 'Created charge name matches fetched charge');
 });
