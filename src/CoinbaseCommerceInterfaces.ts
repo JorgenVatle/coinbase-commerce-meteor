@@ -1,22 +1,22 @@
-type Payments = Array<any>
+export type Payments = Array<any>
 
-type PricingType = 'no_price' | 'fixed_price'
+export type PricingType = 'no_price' | 'fixed_price'
 
-type Timestamp = string;
+export type Timestamp = string;
 
-type Timeline = Array<TimelineEntry>
+export type Timeline = Array<TimelineEntry>
 
-type CryptoCurrency = 'BTC' | 'ETH' | 'ETC' | 'BCH' | 'LTC'
+export type CryptoCurrency = 'BTC' | 'ETH' | 'ETC' | 'BCH' | 'LTC'
 
-type FiatCurrency = 'USD' | 'EUR' | 'GBP'
+export type FiatCurrency = 'USD' | 'EUR' | 'GBP'
 
-interface TimelineEntry {
+export interface TimelineEntry {
     time: Timestamp,
     status: 'NEW' | 'PENDING' | 'CONFIRMED' | 'UNRESOLVED' | 'RESOLVED',
     context?: 'UNDERPAID',
 }
 
-interface Pricing {
+export interface Pricing {
     local: Money,
     bitcoin: Money,
     ethereum: Money,
@@ -25,7 +25,7 @@ interface Pricing {
     ethereum_classic: Money,
 }
 
-interface Addresses {
+export interface Addresses {
     bitcoin: string,
     ethereum: string,
     litecoin: string,
