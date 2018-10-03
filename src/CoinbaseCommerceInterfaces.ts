@@ -6,6 +6,10 @@ type Timestamp = string;
 
 type Timeline = Array<TimelineEntry>
 
+type CryptoCurrency = 'BTC' | 'ETH' | 'ETC' | 'BCH' | 'LTC'
+
+type FiatCurrency = 'USD' | 'EUR'
+
 interface TimelineEntry {
     time: Timestamp,
     status: 'NEW' | 'PENDING' | 'CONFIRMED' | 'UNRESOLVED' | 'RESOLVED',
@@ -31,7 +35,7 @@ interface Addresses {
 
 export interface Money {
     amount: string,
-    currency: 'USD', // Todo: extend
+    currency: CryptoCurrency | FiatCurrency,
 }
 
 export interface CheckoutResource {
