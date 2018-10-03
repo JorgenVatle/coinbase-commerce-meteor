@@ -55,7 +55,7 @@ export default class CoinbaseCommerce {
      * @param message
      */
     protected exception(message: string) {
-        throw new Meteor.Error('CoinbaseCommerce', message);
+        return new Meteor.Error('CoinbaseCommerce', message);
     }
 
     /**
@@ -102,11 +102,11 @@ export default class CoinbaseCommerce {
      */
     public validateWebhook(request: Request) {
         if (!request.headers['X-CC-Webhook-Signature']) {
-            this.exception('No webhook signature in request object!');
+            throw this.exception('No webhook signature in request object!');
         }
 
         if (this.hmac(request.body) !== request.headers['X-CC-Webhook-Signature']) {
-            this.exception('Invalid webhook signature!');
+            throw this.exception('Invalid webhook signature!');
         }
     }
 }
