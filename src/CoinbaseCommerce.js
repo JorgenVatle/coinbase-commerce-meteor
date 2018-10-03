@@ -44,12 +44,13 @@ export default class CoinbaseCommerce {
      * @param path
      * @param data
      * @param options
+     * @returns {object}
      */
     request(method, path, data, options) {
-        HTTP.call(method, path, Object.assign({
+        return HTTP.call(method, path, Object.assign({
             url: this.apiUrl +
             data,
-        }, options))
+        }, options)).data;
     }
 
 }
