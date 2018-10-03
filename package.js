@@ -16,5 +16,6 @@ Package.onTest(function(api) {
   api.use('ecmascript');
   api.use('tinytest');
   api.use('jorgenvatle:coinbase-commerce-meteor');
+  api.addFiles('tests/data/index.json');
   api.mainModule('tests/coinbase-commerce.test.js');
 });
