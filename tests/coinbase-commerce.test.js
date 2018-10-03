@@ -45,5 +45,5 @@ Tinytest.add('Validate valid webhook', (test) => {
 Tinytest.add('Throw exception for invalid webhook', (test) => {
     test.throws(() => {
         Commerce.validateWebhook(TestData.webhooks.invalid);
-    }, Meteor.Error);
+    }, 'Invalid webhook signature! [CoinbaseCommerce]');
 });
