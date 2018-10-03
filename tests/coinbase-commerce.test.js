@@ -5,7 +5,7 @@ const config = Meteor.settings.coinbase;
 const Commerce = new CoinbaseCommerce(config.key, config.secret);
 
 
-Tinytest.add('Create new charge', function (test) {
+Tinytest.add('Create new charge', (test) => {
     const name = 'The Sovereign Individual';
 
     const charge = Commerce.createCharge({
