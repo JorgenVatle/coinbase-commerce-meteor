@@ -1,0 +1,65 @@
+{
+  "headers": {
+    "x-cc-webhook-signature": "010fd5de4323d408a102749f218e8840dcaf5da723d6cc96bfa92220588c73c4"
+  },
+
+  "body": {
+    "attempt_number": 1,
+    "event": {
+      "api_version": "2018-03-22",
+      "created_at": "2018-10-03T04:45:57Z",
+      "data": {
+        "id": "496719e2-212e-4542-9278-aa32cc05bc94",
+        "code": "XQB2K2C5",
+        "name": "Create and fetch charge",
+        "pricing": {
+          "local": {
+            "amount": "100.00",
+            "currency": "USD"
+          },
+          "bitcoin": {
+            "amount": "0.01555410",
+            "currency": "BTC"
+          },
+          "ethereum": {
+            "amount": "0.457530000",
+            "currency": "ETH"
+          },
+          "litecoin": {
+            "amount": "1.74871033",
+            "currency": "LTC"
+          },
+          "bitcoincash": {
+            "amount": "0.19311171",
+            "currency": "BCH"
+          }
+        },
+        "metadata": {},
+        "payments": [],
+        "resource": "charge",
+        "timeline": [
+          {
+            "time": "2018-10-03T04:45:57Z",
+            "status": "NEW"
+          }
+        ],
+        "addresses": {
+          "bitcoin": "1JBfcfgXgmfG37nNwPwnw3eoipfcuMwUG1",
+          "ethereum": "0x222f86ed96e273b62386338f5e02370b06b91de9",
+          "litecoin": "LTdA15oDBgec2cgr6CRFRLApVpGiYCD5w4",
+          "bitcoincash": "qpz2jlffraga95q0d7ygjjc0syd6u64j9vq7xstmaj"
+        },
+        "created_at": "2018-10-03T04:45:57Z",
+        "expires_at": "2018-10-03T05:45:57Z",
+        "hosted_url": "https://commerce.coinbase.com/charges/XQB2K2C5",
+        "description": "Mastering the Transition to the Information Age",
+        "pricing_type": "fixed_price"
+      },
+      "id": "360b2b9b-9f9b-467e-b94c-c01f269c8b5b",
+      "resource": "event",
+      "type": "charge:created"
+    },
+    "id": "b7fe2bb4-f8a5-4a99-bf39-02d73d312e6d",
+    "scheduled_for": "2018-10-03T04:45:57Z"
+  }
+}
