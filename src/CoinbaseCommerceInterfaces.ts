@@ -8,7 +8,7 @@ type Timeline = Array<TimelineEntry>
 
 type CryptoCurrency = 'BTC' | 'ETH' | 'ETC' | 'BCH' | 'LTC'
 
-type FiatCurrency = 'USD' | 'EUR'
+type FiatCurrency = 'USD' | 'EUR' | 'GBP'
 
 interface TimelineEntry {
     time: Timestamp,
