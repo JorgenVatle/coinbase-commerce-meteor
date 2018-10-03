@@ -66,7 +66,7 @@ export default class CoinbaseCommerce {
      *
      * @param id
      */
-    public showCharge(id) {
+    public showCharge(id: string): ChargeResource {
         return this.request('GET', `/charges/${id}`);
     }
 }
