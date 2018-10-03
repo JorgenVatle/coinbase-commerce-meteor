@@ -23,12 +23,10 @@ If you add a `coinbase` object to your project's `settings.json`, you can skip t
 **settings.json**
 ```json
 {
-  // ...
   "coinbase": {
     "key": "Your API key",
     "secret": "Your shared secret"
   }
-  // ...
 }
 ```
 
