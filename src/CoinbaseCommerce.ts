@@ -1,4 +1,5 @@
 import { HTTP } from 'meteor/http';
+import { ChargeResource, CreateACharge } from "./CoinbaseCommerceInterfaces";
 
 export default class CoinbaseCommerce {
 
@@ -48,6 +49,15 @@ export default class CoinbaseCommerce {
             url: this.buildUrl(path),
             data,
         }).data;
+    }
+
+    /**
+     * Create a charge.
+     *
+     * @param charge
+     */
+    public createCharge(charge: CreateACharge): ChargeResource {
+        return this.request('POST', '/charges', charge);
     }
 
 }
