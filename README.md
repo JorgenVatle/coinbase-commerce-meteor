@@ -63,6 +63,16 @@ if (Commerce.isValidWebhook(req)) {
 }
 ```
 
+## Contributing
+To get started with contributing,
+When adding new features, please include tests for them. :smile:
+
+#### Build & Test
+Running the following command will start up both the TypeScript watcher as well as the test environment.
+```bash
+npm start
+```
+
 ## License
 This repository is licensed under the ISC license.
 
