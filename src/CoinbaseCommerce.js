@@ -18,12 +18,21 @@ export default class CoinbaseCommerce {
     apiKey;
 
     /**
+     * Commerce API Version
+     *
+     * @link https://commerce.coinbase.com/docs/api/#introduction
+     */
+    apiVersion;
+
+    /**
      * Coinbase Commerce constructor.
      *
      * @param apiKey
+     * @param apiVersion
      */
-    constructor(apiKey) {
+    constructor(apiKey, apiVersion = '2018-03-22') {
         this.apiKey = apiKey;
+        this.apiVersion = apiVersion;
     }
 
     /**
