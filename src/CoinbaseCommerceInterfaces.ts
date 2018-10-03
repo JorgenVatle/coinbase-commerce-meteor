@@ -21,7 +21,7 @@ interface Pricing {
     bitcoin: Money,
     ethereum: Money,
     litecoin: Money,
-    bitcoin_cash: Money,
+    bitcoincash: Money,
     ethereum_classic: Money,
 }
 
@@ -29,7 +29,7 @@ interface Addresses {
     bitcoin: string,
     ethereum: string,
     litecoin: string,
-    bitcoin_cash: string,
+    bitcoincash: string,
     ethereum_classic: string,
 }
 
