@@ -7,7 +7,7 @@
     "start": "npm test && start npm build -- --watch",
     "build": "tsc .",
     "test": "meteor test-packages ./ --settings settings.json",
-    "publish": "npm build && npm test -- --once && meteor publish"
+    "publish": "npm build && meteor publish"
   },
   "repository": {
     "type": "git",
