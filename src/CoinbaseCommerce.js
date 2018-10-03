@@ -40,6 +40,7 @@ export default class CoinbaseCommerce {
     /**
      * Send a request to the API.
      *
+     * @protected
      * @param method
      * @param path
      * @param data
