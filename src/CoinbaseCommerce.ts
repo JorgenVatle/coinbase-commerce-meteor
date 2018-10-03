@@ -95,8 +95,18 @@ export default class CoinbaseCommerce {
         return this.request('GET', `/charges/${id}`);
     }
 
-
+    /**
+     * Validate the given webhook request.
+     *
+     * @param request
+     */
     public validateWebhook(request: Request) {
+        if (!request.headers['X-CC-Webhook-Signature']) {
+            this.exception('No webhook signature in request object!');
+        }
 
+        if (this.hmac(request.body) !== request.headers['X-CC-Webhook-Signature']) {
+            this.exception('Invalid webhook signature!');
+        }
     }
 }
