@@ -39,6 +39,9 @@ const charge = Commerce.showCharge('charge-id-goes-here');
 ```
 
 ## Webhooks
+It's important that you validate webhooks to ensure the authenticity of the webhook data.
+Without validation, an attacker may be able to spoof webhooks in turn allowing them to fulfill orders that aren't
+paid for yet.
 
 #### [Validate webhook](https://commerce.coinbase.com/docs/api/#securing-webhooks)
 The webhook validator throws a `Meteor.Error` for webhooks that don't pass the validation.
