@@ -1,5 +1,8 @@
 // @ts-ignore
 import { HTTP } from 'meteor/http';
+// @ts-ignore
+import { Meteor } from 'meteor/meteor';
+
 import * as Crypto from 'crypto';
 import { ChargeResource, CreateACharge } from "./CoinbaseCommerceInterfaces";
 
@@ -44,6 +47,15 @@ export default class CoinbaseCommerce {
      */
     protected hmac(value, secret = this.api.secret): string {
         return Crypto.createHmac('sha256', secret).update(value).digest('hex');
+    }
+
+    /**
+     * Throws a new Meteor.Error
+     *
+     * @param message
+     */
+    protected exception(message: string) {
+        throw new Meteor.Error('CoinbaseCommerce', message);
     }
 
     /**
