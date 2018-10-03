@@ -41,7 +41,7 @@ export default class CoinbaseCommerce {
      * @param data
      * @returns {object}
      */
-    protected request(method, path, data): any {
+    protected request(method, path, data?): any {
         return HTTP.call(method, path, {
             headers: {
                 'X-CC-Api-Key': this.api.key,
@@ -61,4 +61,12 @@ export default class CoinbaseCommerce {
         return this.request('POST', '/charges', charge);
     }
 
+    /**
+     * Retrieve a charge.
+     *
+     * @param id
+     */
+    public showCharge(id) {
+        return this.request('GET', `/charges/${id}`);
+    }
 }
