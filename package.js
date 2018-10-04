@@ -9,6 +9,8 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.2');
   api.use('ecmascript');
+  api.addFiles('dist/CoinbaseCommerce.d.ts', 'server');
+  api.addFiles('dist/CoinbaseCommerceInterfaces.d.ts', 'server');
   api.mainModule('dist/CoinbaseCommerce.js');
 });
 
