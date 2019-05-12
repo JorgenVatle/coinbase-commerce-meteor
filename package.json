@@ -3,6 +3,7 @@
   "private": true,
   "description": "Coinbase Commerce library for Meteor",
   "main": "index.js",
+  "types": "dist/CoinbaseCommerce.d.ts",
   "scripts": {
     "start": "start npm run build -- --watch & npm test",
     "build": "tsc",
