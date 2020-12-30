@@ -54,6 +54,22 @@ const charge = Commerce.createCharge({
 const charge = Commerce.showCharge('charge-id-goes-here');
 ```
 
+## Invoices
+
+#### Create invoice
+```js
+const invoice = Commerce.createIncoice({
+    business_name: 'My Business',
+    customer_email: 'john@doe.com',
+    customer_name: 'John Doe',
+    local_price: {
+        currency: 'USD',
+        amount: '499.00',
+    },
+    memo: 'License Renewal (1 year)'
+})
+```
+
 ## Webhooks
 It's important that you validate webhooks to ensure the authenticity of the webhook data.
 Without validation, an attacker may be able to spoof webhooks in turn allowing them to fulfill orders that aren't
