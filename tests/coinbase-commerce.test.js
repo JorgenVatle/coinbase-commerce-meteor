@@ -51,3 +51,19 @@ Tinytest.add('Validate webhooks with booleans', (test) => {
     test.isTrue(Commerce.isValidWebhook(TestData.webhooks.valid));
     test.isFalse(Commerce.isValidWebhook(TestData.webhooks.invalid));
 });
+
+Tinytest.add('Can create invoices', (test) => {
+    const invoice = Commerce.createInvoice({
+        business_name: 'My Business',
+        customer_email: 'john@doe.com',
+        customer_name: 'John Doe',
+        local_price: {
+            currency: 'USD',
+            amount: '499.00',
+        },
+        memo: 'License Renewal (1 year)'
+    });
+
+    test.isNotNull(invoice.id, 'Invoice ID');
+    test.equal(invoice.memo, 'License Renewal (1 year)');
+})
