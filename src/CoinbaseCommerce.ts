@@ -106,7 +106,7 @@ export default class CoinbaseCommerce {
      *
      * @param invoice
      */
-    public createAnInvoice(invoice: CreateAnInvoice): InvoiceResource {
+    public createInvoice(invoice: CreateAnInvoice): InvoiceResource {
         return this.request('POST', '/invoices', invoice).data;
     }
 
