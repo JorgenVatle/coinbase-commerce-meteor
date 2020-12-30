@@ -4,7 +4,13 @@ import { HTTP } from 'meteor/http';
 import { Meteor } from 'meteor/meteor';
 
 import * as Crypto from 'crypto';
-import { ChargeResource, CreateACharge } from "./CoinbaseCommerceInterfaces";
+import {
+    ChargeResource,
+    CheckoutResource,
+    CreateACharge,
+    CreateAnInvoice,
+    InvoiceResource,
+} from './CoinbaseCommerceInterfaces';
 
 type FormattedRequest = {
     headers: any,
@@ -93,6 +99,15 @@ export default class CoinbaseCommerce {
      */
     public createCharge(charge: CreateACharge): ChargeResource {
         return this.request('POST', '/charges', charge).data;
+    }
+
+    /**
+     * Create a checkout.
+     *
+     * @param invoice
+     */
+    public createAnInvoice(invoice: CreateAnInvoice): InvoiceResource {
+        return this.request('POST', '/invoices', invoice).data;
     }
 
     /**
