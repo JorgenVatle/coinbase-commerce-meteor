@@ -1,6 +1,6 @@
 Package.describe({
   name: 'jorgenvatle:coinbase-commerce-meteor',
-  version: '1.1.1',
+  version: '1.2.0',
   summary: 'A wrapper for Coinbase Commerce\'s REST API',
   git: 'https://github.com/JorgenVatle/coinbase-commerce-meteor.git',
   documentation: 'README.md'
