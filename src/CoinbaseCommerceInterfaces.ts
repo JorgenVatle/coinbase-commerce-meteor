@@ -69,3 +69,19 @@ export interface CreateACharge {
     metadata?: any,
     redirect_url?: string,
 }
+
+export interface CreateAnInvoice {
+    business_name: string;
+    customer_email: string;
+    customer_name?: string;
+    local_price?: Money;
+    memo: string;
+}
+
+export interface InvoiceResource extends CreateAnInvoice {
+    id: string;
+    short_code: string;
+    status: 'OPEN' | 'VOID' | 'PAID';
+    created_at: string;
+    updated_at: string;
+}
