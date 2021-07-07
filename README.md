@@ -1,4 +1,8 @@
 # Coinbase Commerce Meteor
+![CircleCI Build](https://img.shields.io/circleci/project/github/JorgenVatle/coinbase-commerce-meteor/master.svg)
+![GitHub](https://img.shields.io/github/license/JorgenVatle/coinbase-commerce-meteor.svg)
+[![Atmosphere](https://img.shields.io/badge/atmosphere-coinbase--commerce--meteor-blue.svg)](https://atmospherejs.com/jorgenvatle/coinbase-commerce-meteor)
+
 A wrapper package for enabling synchronous usage of Coinbase Commerce's REST API.
 
 This package was written up primarily due to scoping issues with the official package

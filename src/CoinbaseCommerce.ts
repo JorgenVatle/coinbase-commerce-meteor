@@ -1,6 +1,4 @@
-// @ts-ignore
 import { HTTP } from 'meteor/http';
-// @ts-ignore
 import { Meteor } from 'meteor/meteor';
 
 import * as Crypto from 'crypto';
