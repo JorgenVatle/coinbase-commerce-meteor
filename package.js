@@ -1,13 +1,13 @@
 Package.describe({
   name: 'jorgenvatle:coinbase-commerce-meteor',
-  version: '1.2.0',
+  version: '1.3.0',
   summary: 'A wrapper for Coinbase Commerce\'s REST API',
   git: 'https://github.com/JorgenVatle/coinbase-commerce-meteor.git',
   documentation: 'README.md'
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('1.2');
+  api.versionsFrom(['2.5']);
   api.use('ecmascript');
   api.addAssets('dist/CoinbaseCommerce.d.ts', 'server');
   api.addAssets('dist/CoinbaseCommerceInterfaces.d.ts', 'server');
