@@ -27,6 +27,6 @@
   "homepage": "https://github.com/JorgenVatle/meteor-coinbase-commerce#readme",
   "devDependencies": {
     "@types/node": "^10.11.3",
-    "typescript": "^3.1.1"
+    "typescript": "^5.3.3"
   }
 }
