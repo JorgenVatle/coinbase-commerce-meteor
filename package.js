@@ -11,8 +11,6 @@ Package.onUse(function(api) {
   api.use('zodern:types@1.0.11');
   api.use('typescript');
   api.use('ecmascript');
-  api.addAssets('dist/CoinbaseCommerce.d.ts', 'server');
-  api.addAssets('dist/CoinbaseCommerceInterfaces.d.ts', 'server');
   api.mainModule('dist/CoinbaseCommerce.js');
 });
 
