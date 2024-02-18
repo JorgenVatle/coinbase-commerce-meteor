@@ -1,7 +1,6 @@
 import { HTTP } from 'meteor/http';
 import { Meteor } from 'meteor/meteor';
 
-import * as Crypto from 'crypto';
 import {
     ChargeResource,
     CheckoutResource,
@@ -60,6 +59,10 @@ export default class CoinbaseCommerce {
      * @param secret
      */
     protected hmac(value: any, secret = this.api.secret): string {
+        if (!Meteor.isServer) {
+            throw new Meteor.Error('server_only', 'This method can only run on the server')
+        }
+        const Crypto = require('crypto');
         return Crypto.createHmac('sha256', secret).update(value).digest('hex');
     }
 
