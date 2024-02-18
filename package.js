@@ -7,7 +7,9 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom(['2.5']);
+  api.versionsFrom(['2.5', '2.15']);
+  api.use('zodern:types@1.0.11');
+  api.use('typescript');
   api.use('ecmascript');
   api.addAssets('dist/CoinbaseCommerce.d.ts', 'server');
   api.addAssets('dist/CoinbaseCommerceInterfaces.d.ts', 'server');
