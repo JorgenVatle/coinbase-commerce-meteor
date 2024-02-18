@@ -1,4 +1,4 @@
-import { HTTP } from 'meteor/http';
+import { fetch, Headers } from 'meteor/fetch';
 import { Meteor } from 'meteor/meteor';
 
 import {
@@ -84,13 +84,24 @@ export default class CoinbaseCommerce {
      * @returns {object}
      */
     protected request(method: string, path: string, data?: any): any {
-        return HTTP.call(method, this.buildUrl(path), {
-            data,
-            headers: {
+        const responseData = fetch(this.buildUrl(path), {
+            method,
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'User-Agent': 'Meteor/v2 (coinbase-commerce-meteor@1.3.0)',
                 'X-CC-Api-Key': this.api.key,
                 'X-CC-Version': this.api.version,
-            },
-        }).data;
+            }),
+            body: JSON.stringify(data),
+        }).then((response) => response.json());
+        
+        // @ts-expect-error Meteor is missing type definitions for v3
+        if (!Meteor.isFibersEnabled) {
+            return responseData;
+        }
+        
+        // @ts-expect-error Meteor is missing type definitions for Fibers' Promise.await() method
+        return Promise.await(responseData);
     }
 
     /**
