@@ -96,7 +96,7 @@ export default class CoinbaseCommerce {
         }).then((response) => response.json());
         
         // @ts-expect-error Meteor is missing type definitions for v3
-        if (!Meteor.isFibersEnabled) {
+        if (Meteor.isFibersEnabled) {
             // @ts-expect-error Yields a promise and not the generic type
             return responseData;
         }
