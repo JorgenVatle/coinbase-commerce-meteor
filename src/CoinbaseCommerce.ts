@@ -88,7 +88,7 @@ export default class CoinbaseCommerce {
             method,
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'User-Agent': 'Meteor/v2 (coinbase-commerce-meteor@1.3.2)',
+                'User-Agent': 'Meteor/v2 (coinbase-commerce-meteor@1.3.3)',
                 'X-CC-Api-Key': this.api.key,
                 'X-CC-Version': this.api.version,
             }),
