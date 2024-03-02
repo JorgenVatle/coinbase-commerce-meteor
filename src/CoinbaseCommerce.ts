@@ -83,7 +83,7 @@ export default class CoinbaseCommerce {
      * @param data
      * @returns {object}
      */
-    protected request(method: string, path: string, data?: any): any {
+    protected request<TResponse>(method: string, path: string, data?: unknown): TResponse {
         const responseData = fetch(this.buildUrl(path), {
             method,
             headers: new Headers({
@@ -97,6 +97,7 @@ export default class CoinbaseCommerce {
         
         // @ts-expect-error Meteor is missing type definitions for v3
         if (!Meteor.isFibersEnabled) {
+            // @ts-expect-error Yields a promise and not the generic type
             return responseData;
         }
         
@@ -110,7 +111,7 @@ export default class CoinbaseCommerce {
      * @param charge
      */
     public createCharge(charge: CreateACharge): ChargeResource {
-        return this.request('POST', '/charges', charge).data;
+        return this.request<ChargeResource>('POST', '/charges', charge);
     }
 
     /**
@@ -119,7 +120,7 @@ export default class CoinbaseCommerce {
      * @param invoice
      */
     public createInvoice(invoice: CreateAnInvoice): InvoiceResource {
-        return this.request('POST', '/invoices', invoice).data;
+        return this.request<InvoiceResource>('POST', '/invoices', invoice);
     }
 
     /**
@@ -128,7 +129,7 @@ export default class CoinbaseCommerce {
      * @param id
      */
     public showCharge(id: string): ChargeResource {
-        return this.request('GET', `/charges/${id}`).data;
+        return this.request<ChargeResource>('GET', `/charges/${id}`);
     }
 
     /**
